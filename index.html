@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <!-- 国内 Staticfile CDN 上的 Bootstrap5 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <!-- Libraries Stylesheet -->
+    <link href="adlibrary/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="adlibrary/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="adlibrary/css/style.css" rel="stylesheet">
+    <link href="adlibrary/css/style2.css" rel="stylesheet">
+    <!-- ogilvy -->
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="ogilvy/styleog.css">
+    <script src="ogilvy/animate.js"> </script>
+    <body>
+    <style>
+#gradient
+{
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+    </style>
+    <script>
+var colors = new Array(
+  [62,35,255],
+  [60,255,60],
+  [255,35,98],
+  [45,175,230],
+  [255,0,255],
+  [255,128,0]);
+
+var step = 0;
+//color table indices for:
+// current color left
+// next color left
+// current color right
+// next color right
+var colorIndices = [0,1,2,3];
+
+//transition speed
+var gradientSpeed = 0.002;
+
+function updateGradient()
+{
+
+  if ( $===undefined ) return;
+
+var c0_0 = colors[colorIndices[0]];
+var c0_1 = colors[colorIndices[1]];
+var c1_0 = colors[colorIndices[2]];
+var c1_1 = colors[colorIndices[3]];
+
+var istep = 1 - step;
+var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+ $('#gradient').css({
+   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+  step += gradientSpeed;
+  if ( step >= 1 )
+  {
+    step %= 1;
+    colorIndices[0] = colorIndices[1];
+    colorIndices[2] = colorIndices[3];
+
+    //pick two new target color indices
+    //do not pick the same as the current one
+    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
+  }
+}
+setInterval(updateGradient,10);
+    </script>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner-border" style="width: 3rem; height: 3rem;color:rgba(43, 255, 0, 0.829);" role="status">
+          <span class="sr-only">Loading...</span>
+      </div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navbar & Hero Start -->
+  <div class="container-xxl position-relative p-0" style="background-color: rgb(0, 0, 0);">
+      <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+          <a href="index.html" class="navbar-brand p-0">
+              <h1 class="m-0">AEDI</h1>
+              <!-- <img src="img/logo.png" alt="Logo"> -->
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="fa fa-bars"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav ms-auto py-0 position-relative">
+                  <a href="index.html" class="nav-item nav-link active">首页</a>
+                  <a href="adlibrary/AdLibrary.html" class="nav-item nav-link">ADmuseum</a>
+                  <a href="ogilvy/ogilvyworkshop2.html" class="nav-item nav-link">Ogilvy创意</a>
+                  <a href="exercise/每日一练.html" class="nav-item nav-link">创意练习</a>
+                  <a href="competition/event.html" class="nav-item nav-link">创意赛事</a>
+                  <a href="community/new.html" class="nav-item nav-link">创意社区</a>
+              </div>
+              <a href="广告注册页/广告注册页.html" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">注册</a>
+          </div>
+      </nav>
+      <!-- navbar end -->
+
+      <div id="ogilvy" class="container-xxl py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <img src="ogilvy/image/firstpage.gif">
+                </div>
+                <div class="col-lg-9 wow fadeInUp py-5" data-wow-delay="0.5s">
+                    <ul class="Words">
+                        <li class="Words-line">
+                            <p>&nbsp;</p>
+                        </li>
+                        <li class="Words-line">
+                            <p>进入！</p>
+                            <p class="kk1"><a href="ogilvy/ogilvyworkshop2.html">ENTER</a></p>
+                        </li>
+                        <li class="Words-line">
+                            <p>创意交换商店</p>
+                            <p>creative exchange</p>
+                        </li>
+                        <li class="Words-line">
+                            <p>creative exchange</p>
+                            <p>STORE</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    <div id="gradient" class="wow fadeInUp" style="background-color: rgb(0, 0, 0);">
+        <!-- About Start -->
+        <div class="container-xxl py-0">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <img class="img-fluid" style=" border-radius: 25px;" src="adlibrary/pic/主视觉.png">
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <h2 class="mb-4" style="font-size:50px;color: chartreuse;font-weight: 800;">AD Museum</h2>
+                        <p class="mb-4" style="font-size:25px;color:chartreuse;font-weight: 800;">每一个灵感迸发的瞬间</p>
+                        <p class="mb-4" style="font-size:25px;color: chartreuse;font-weight: 800;">每一个创意碰撞的场面</p>
+                        <p class="mb-4" style="font-size:25px;color:chartreuse;font-weight: 800;">每一次激动人心的会谈</p>
+                        <p class="mb-4" style="font-size:50px;color: rgb(255, 255, 255);font-weight: 800;">创意，由此看见</p>
+                        <div class="row g-3 mb-4">
+                        </div>
+                        <a class="btn btn-dark rounded-pill py-3 px-5 mt-2" href="adlibrary/AdLibrary.html">进入</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+        </div>
+        <div class="container-xxl py-4" style="background-color:black;">
+            <div class="container">
+                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.4s" style="max-width: 600px;">
+                    <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">SPECIAL</div>
+                    <h2 class="mb-3 text-light ADfonts wow fadeInUp">特色内容</h2>
+                    <h1 class="ml17">HAVE YOUR INSPIRATION</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <a href="exercise/每日一练.html">
+                        <div class="service-item rounded h-100">
+                            <div class="d-flex justify-content-between">
+                            </div>
+                            <div class="p-4">
+                                <img src="exercise/练习1.jpg" class="card-img-bottom cardimg" alt="...">
+                                <h5 class="mb-3">创意练习</h5>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                        <a href="competition/event.html">
+                        <div class="service-item rounded h-100">
+                            <div class="d-flex justify-content-between">
+                            </div>
+                            <div class="p-4">
+                                <img src="competition/img/oly.jpg" class="card-img-bottom cardimg" alt="...">
+                                <h5 class="mb-3">创意赛事</h5>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <a href="competition/event.html">
+                        <div class="service-item rounded h-100">
+                            <div class="p-4">
+                                <img src="community/img/封面页.png" class="card-img-bottom cardimg" alt="...">
+                                <h5 class="mb-3">互动社区</h5>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fulid text-center py-3" style="background-color: rgb(120,255,0);padding: 0px;">
+                <div class="copyright">
+                © Copyright
+                <strong>AEID</strong>
+                <div class="text-white pstyle" style="font-weight:900;">Designed By@中国传媒大学广告学院</div>
+                    <p class="text-white  pstyle" style="font-weight:900;">Distributed By第四小组</div>
+                </div>
+            </div>
+         </div>
+    </div>
+    <!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="adlibrary/lib/wow/wow.min.js"></script>
+<script src="adlibrary/lib/easing/easing.min.js"></script>
+<script src="adlibrary/lib/waypoints/waypoints.min.js"></script>
+<script src="adlibrary/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="adlibrary/js/main.js"></script>
+<!-- Scripts -->
+<script src="adlibrary/vendor/jquery/jquery.min.js"></script>
+<script src="adlibrary/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="adlibrary/assets/js/owl-carousel.js"></script>
+<script src="adlibrary/assets/js/animation.js"></script>
+<script src="adlibrary/assets/js/imagesloaded.js"></script>
+<script src="adlibrary/assets/js/custom.js"></script>
+ </body>
+</html>
